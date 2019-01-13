@@ -9,7 +9,7 @@ pipeline {
     }
     stage('sonar') {
       steps {
-        withSonarQubeEnv 'C:\\sonarqube-7.3\\bin\\windows-x86-64\\lib\\wrapper'
+        withSonarQubeEnv 'C:\\sonar-scanner-3.2.0.1227-windows\\bin\\sonar-scanner'
       }
     }
   }
