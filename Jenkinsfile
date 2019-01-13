@@ -9,7 +9,10 @@ pipeline {
     }
     stage('sonar') {
       steps {
-        withSonarQubeEnv 'C:\\sonar-scanner-3.2.0.1227-windows\\bin\\sonar-scanner'
+        withSonarQubeEnv('C:\\sonar-scanner-3.2.0.1227-windows\\bin\\sonar-scanner') {
+          waitForQualityGate true
+        }
+
       }
     }
   }
