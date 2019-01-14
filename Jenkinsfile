@@ -36,5 +36,10 @@ pipeline {
         bat 'gradle uploadArchives'
       }
     }
+    stage('slack notification') {
+      steps {
+        slackSend(token: '41FJUHEG1ckO3MIeu7UUBgkO', baseUrl: 'https://esi-bouali-sil1.slack.com/services/hooks/jenkins-ci/')
+      }
+    }
   }
 }
