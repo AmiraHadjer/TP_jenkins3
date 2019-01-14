@@ -8,5 +8,10 @@ pipeline {
         bat 'gradle javadoc'
       }
     }
+    stage('mail notificaton') {
+      steps {
+        emailext(subject: 'notification TP', body: 'hello from TP', to: 'fa_bouali@esi.dz')
+      }
+    }
   }
 }
