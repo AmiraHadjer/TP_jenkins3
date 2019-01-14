@@ -29,11 +29,11 @@ pipeline {
             jacoco()
           }
         }
-        stage('Upoad') {
-          steps {
-            bat 'gradle uploadArchives'
-          }
-        }
+      }
+    }
+    stage('Upload') {
+      steps {
+        bat 'gradle uploadArchives'
       }
     }
   }
