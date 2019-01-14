@@ -13,5 +13,11 @@ pipeline {
         emailext(subject: 'notification TP', body: 'hello from TP', to: 'fa_bouali@esi.dz')
       }
     }
+    stage('quality gate') {
+      steps {
+        tool 'sonarqube'
+        withSonarQubeEnv 'SonarQube Scanner 3.2.0'
+      }
+    }
   }
 }
