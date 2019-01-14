@@ -17,8 +17,9 @@ pipeline {
       parallel {
         stage('quality gate') {
           steps {
-            withSonarQubeEnv 'sonarqube'
+            withSonarQubeEnv ('sonarqube') {
             bat 'sonar-scanner'
+            }
             waitForQualityGate true
           }
         }
