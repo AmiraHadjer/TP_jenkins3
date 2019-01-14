@@ -15,9 +15,11 @@ pipeline {
     }
     stage('quality gate') {
       steps {
-        tool 'SonarQube Scanner 3.2.0'
         withSonarQubeEnv 'sonarqube'
+        bat 'sonar-scanner'
       }
+      
+      
     }
   }
 }
