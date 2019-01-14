@@ -17,9 +17,10 @@ pipeline {
       parallel {
         stage('quality gate') {
           steps {
-            withSonarQubeEnv ('sonarqube') {
-            bat 'sonar-scanner'
+            withSonarQubeEnv('sonarqube') {
+              bat 'sonar-scanner'
             }
+
             waitForQualityGate true
           }
         }
@@ -28,6 +29,11 @@ pipeline {
             jacoco()
           }
         }
+      }
+    }
+    stage('') {
+      steps {
+        bat 'gradle uploadArchives'
       }
     }
   }
