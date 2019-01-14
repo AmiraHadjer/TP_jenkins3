@@ -14,12 +14,19 @@ pipeline {
       }
     }
     stage('quality gate') {
-      steps {
-        withSonarQubeEnv 'sonarqube'
-        bat 'sonar-scanner'
+      parallel {
+        stage('quality gate') {
+          steps {
+            withSonarQubeEnv 'sonarqube'
+            bat 'sonar-scanner'
+          }
+        }
+        stage('test repporting') {
+          steps {
+            jacoco()
+          }
+        }
       }
-      
-      
     }
   }
 }
