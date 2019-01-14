@@ -4,7 +4,7 @@ pipeline {
     stage('Build') {
       steps {
         bat 'gradle build'
-        archiveArtifacts 'build/lib/*.jar'
+        archiveArtifacts 'build/libs/*.jar'
       }
     }
     stage('sonar') {
