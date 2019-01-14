@@ -19,6 +19,7 @@ pipeline {
           steps {
             withSonarQubeEnv 'sonarqube'
             bat 'sonar-scanner'
+            waitForQualityGate true
           }
         }
         stage('test repporting') {
